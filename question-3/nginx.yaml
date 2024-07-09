@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: qq3
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+#command
+#kubectl create namespace qq3
+#kubectl apply -f nginx.yaml
+#kubectl set image deployment/nginx-deployment nginx=nginx:alpine -n qq3
+
+#ref:
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

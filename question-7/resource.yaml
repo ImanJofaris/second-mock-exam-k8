@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: limit
+  namespace: qq3
+spec:
+  containers:
+  - name: redis
+    image: redis
+    resources:
+      requests:
+        memory: "500Mi"
+        cpu: "0.5"
+      limits:
+        memory: "1Gi"
+        cpu: "1"
+
+#command
+#kubectl create namespace qq3 (if don't have yet)
+#kubectl apply -f resource.yaml
+
+

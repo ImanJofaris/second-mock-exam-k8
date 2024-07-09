@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginxdaemon
+  namespace: qq3
+spec:
+  selector:
+    matchLabels:
+      name: daemontset-nginx
+  template:
+    metadata:
+      labels:
+        name: daemontset-nginx
+    spec:
+      containers:
+      - name: nginx-daemonset
+        image: nginx
+        ports:
+        - containerPort: 80
+
+#command
+#kubectl create namespace qq3
+#kubectl apply -f daemon-set.yaml
+
